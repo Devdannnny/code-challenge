@@ -450,3 +450,20 @@ body.dark .skip-card.selected {
 .skip-error {
   color: var(--color-error);
 }
+
+.skip-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+  width: 100%;
+}
+.skip-loading svg {
+  width: 48px;
+  height: 48px;
+  animation: skip-spin 1s linear infinite;
+  display: block;
+}
+@keyframes skip-spin {
+  100% { transform: rotate(360deg); }
+}

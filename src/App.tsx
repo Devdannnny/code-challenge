@@ -48,7 +48,20 @@ function App() {
         Select the skip size that best suits your needs
       </p>
       {loading ? (
-        <div className="skip-loading">Loading skip options...</div>
+        <div className="skip-loading">
+          <svg viewBox="0 0 50 50">
+            <circle
+              cx="25"
+              cy="25"
+              r="20"
+              fill="none"
+              stroke="var(--color-primary)"
+              strokeWidth="5"
+              strokeLinecap="round"
+              strokeDasharray="90 150"
+            />
+          </svg>
+        </div>
       ) : error ? (
         <div className="skip-error">{error}</div>
       ) : (
