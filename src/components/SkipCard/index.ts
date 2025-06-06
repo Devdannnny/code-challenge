@@ -1,1 +1,1 @@
-export { default } from './SkipCard';
+export { default } from "./SkipCard";
