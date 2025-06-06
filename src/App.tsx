@@ -21,11 +21,7 @@ function App() {
   const [selectedSkip, setSelectedSkip] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [dark, setDark] = useState(
-    () =>
-      window.matchMedia("(prefers-color-scheme: dark)").matches ||
-      localStorage.getItem("theme") === "dark"
-  );
+  const [dark, setDark] = useState(localStorage.getItem("theme") === "dark");
 
   useEffect(() => {
     document.body.classList.toggle("dark", dark);
