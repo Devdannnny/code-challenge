@@ -1,18 +1,6 @@
 import React from "react";
+import { SummaryBarProps } from "../types/skip";
 
-interface SkipOption {
-  id: number;
-  size: number;
-  price: number;
-  hirePeriod: string;
-  image?: string;
-}
-
-interface SummaryBarProps {
-  skip: SkipOption | null;
-  onContinue: () => void;
-  onBack: () => void;
-}
 
 const SummaryBar: React.FC<SummaryBarProps> = ({
   skip,
