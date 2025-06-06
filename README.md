@@ -34,10 +34,7 @@ This project implements a skip size selection page, fetching real-time data from
 
 ![Desktop Screenshot](./public/images/screenshots/screen-shot-update.png)
 
-
-
-
-> _Replace the above image paths with your actual screenshots in a `public/images/screenshots/` folder._
+> _The screenshot above is mockup of the UI for both desktop and mobile._
 
 ## Features
 - **Dynamic skip options:** Fetched from a live API and mapped to a consistent UI model
