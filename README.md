@@ -30,9 +30,9 @@ This project implements a skip size selection page, fetching real-time data from
 - Accessibility and responsiveness
 - Clear separation of concerns
 
-## Screenshots
+## Screenshot
 
-![Desktop Screenshot](./public/images/screenshots/screen-shot-update.png)
+![Mockup Screenshot](./public/images/screenshots/screen-shot-update.png)
 
 > _The screenshot above is mockup of the UI for both desktop and mobile._
 
