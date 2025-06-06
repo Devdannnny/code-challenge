@@ -1,18 +1,5 @@
 import React from "react";
-
-interface SkipOption {
-  id: number;
-  size: number;
-  price: number;
-  hirePeriod: string;
-  image?: string;
-}
-
-interface SkipCardProps {
-  skip: SkipOption;
-  selected: boolean;
-  onSelect: () => void;
-}
+import { SkipCardProps } from "../types/skip";
 
 const SkipCard: React.FC<SkipCardProps> = ({ skip, selected, onSelect }) => (
   <div

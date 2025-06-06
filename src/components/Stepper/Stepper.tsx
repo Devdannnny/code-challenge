@@ -1,10 +1,5 @@
 import React from "react";
-
-interface StepperProps {
-  steps: string[];
-  currentStep: number;
-  stepDescriptions?: string[];
-}
+import { StepperProps } from "../../types/skip";
 
 const Stepper: React.FC<StepperProps> = ({ steps, currentStep, stepDescriptions = [] }) => {
   return (
