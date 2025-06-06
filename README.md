@@ -32,7 +32,7 @@ This project implements a skip size selection page, fetching real-time data from
 ## Screenshots
 
 ### Desktop
-![Desktop Screenshot](./screenshots/desktop.png)
+![Desktop Screenshot](./images/screenshots/desktop-ui.png)
 
 ### Mobile
 ![Mobile Screenshot](./screenshots/mobile.png)
