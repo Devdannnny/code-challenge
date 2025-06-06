@@ -30,6 +30,8 @@ body.dark {
   --color-white: var(--color-bg-card-dark);
 }
 
+
+
 body,
 html,
 #root,
@@ -40,10 +42,19 @@ html,
   font-family: "Inter", Arial, sans-serif;
   background: var(--color-bg);
   color: var(--color-text);
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  width: 100%;
+}
+
+body
+{
+  padding-bottom: 50px;
 }
 
 .skip-selector-root {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 24px 8px 80px 8px;
   box-sizing: border-box;
@@ -315,8 +326,8 @@ html,
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 21%;
+    padding-right: 21%;
   }
 }
 
@@ -466,4 +477,225 @@ body.dark .skip-card.selected {
 }
 @keyframes skip-spin {
   100% { transform: rotate(360deg); }
+}
+
+/* Vertical Stepper Styles */
+.vertical-stepper {
+  display: none; /* Hidden by default (mobile) */
+  width: 200px; /* Adjust as needed */
+  flex-shrink: 0;
+  padding: 20px 0;
+  /* Sticky positioning for desktop */
+  position: sticky;
+  top: 20px; /* Adjust top offset as needed */
+}
+.vertical-stepper-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.vertical-stepper-item {
+  display: flex;
+  align-items: flex-start;
+  /* margin-bottom: 25px; */
+  position: relative;
+  overflow: hidden;
+}
+.vertical-stepper-marker {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+.vertical-stepper-check {
+  color: var(--color-success);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.vertical-stepper-circle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ccc;
+}
+.vertical-stepper-item.active .vertical-stepper-circle {
+  background: var(--color-primary);
+}
+.vertical-stepper-line {
+  position: absolute;
+  left: 11px;
+  top: 24px;
+  bottom: -25px;
+  width: 2px;
+  background: #ccc;
+  z-index: 0;
+}
+.vertical-stepper-item.done .vertical-stepper-line {
+  background: var(--color-success);
+}
+
+.vertical-stepper-item.active .vertical-stepper-line {
+  background: var(--color-primary);
+}
+.vertical-stepper-item:last-child .vertical-stepper-line {
+  display: none;
+}
+.vertical-stepper-item.done .vertical-stepper-marker .vertical-stepper-circle {
+  display: none;
+}
+
+.vertical-stepper-item.active .vertical-stepper-content .vertical-stepper-title {
+  font-weight: bold;
+  color: var(--color-text);
+}
+.vertical-stepper-item.done .vertical-stepper-content .vertical-stepper-title {
+  font-weight: bold;
+  color: var(--color-success) !important;
+}
+.vertical-stepper-item.active .vertical-stepper-content .vertical-stepper-title {
+  font-weight: bold;
+  color:  var(--color-primary);
+}
+.vertical-stepper-item.active .vertical-stepper-content .vertical-stepper-desc {
+  color: var(--color-text-muted);
+}
+.vertical-stepper-content {
+  flex-grow: 1;
+  padding-top: 3px;
+  padding-bottom: 10px;
+}
+.vertical-stepper-title {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 4px;
+}
+.vertical-stepper-desc {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+/* Ensure active/done states use correct colors from variables */
+.vertical-stepper-item.done .vertical-stepper-marker .vertical-stepper-check {
+  color: var(--color-success);
+}
+
+.vertical-stepper-item.active .vertical-stepper-marker .vertical-stepper-circle {
+  background: var(--color-primary);
+}
+
+.vertical-stepper-item.done .vertical-stepper-content .vertical-stepper-title,
+.vertical-stepper-item.done .vertical-stepper-content .vertical-stepper-desc {
+  color: #888;
+}
+
+/* Stepper mobile styles (show on mobile, hide on desktop) */
+.stepper-mobile {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 28px;
+  padding-left: 20px;
+}
+.stepper-progress-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 3px solid var(--color-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-white);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--color-primary);
+  position: relative;
+}
+.stepper-progress-number {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+.stepper-progress-total {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+.stepper-mobile-labels {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.stepper-mobile-current {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--color-text);
+}
+.stepper-mobile-next {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+/* Desktop Stepper Styles (show vertical, hide mobile) */
+@media (min-width: 601px) {
+  .stepper-mobile {
+    display: none;
+  }
+  .vertical-stepper {
+    display: block; /* Show vertical stepper on desktop */
+  }
+}
+
+/* Ensure space for the sticky stepper on desktop */
+.skip-content-container {
+  flex: 1;
+  min-width: 0; /* Allow content to shrink */
+}
+
+@media (min-width: 601px) {
+  .skip-content-container {
+    margin-left: 52px; /* Add margin to main content to make space for sticky stepper + gap */
+    /* 200px (stepper width) + 32px (gap) = 232px */
+  }
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .skip-selector-root {
+    flex-direction: column;
+    gap: 20px;
+    padding: 12px 8px 90px 8px;
+  }
+  .skip-title {
+    font-size: 1.3rem;
+    margin-bottom: 0 !important;
+  }
+  .skip-subtitle {
+    margin-top: 4px;
+  }
+  .skip-card-img-placeholder {
+    text-align: center !important;
+  }
+
+  body
+  {
+    padding-bottom: 100px;
+  }
+
+  .stepper-mobile
+  {
+    margin-bottom: 10px;
+  }
+
+  .skip-card-title
+  {
+    font-size: 16px;
+  }
 }
