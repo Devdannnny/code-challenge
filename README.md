@@ -11,6 +11,7 @@ A modern, responsive React application for selecting skip sizes, designed with b
 - [Overview](#overview)
 - [Screenshots](#screenshots)
 - [Features](#features)
+- [Dark Mode](#dark-mode)
 - [Project Structure](#project-structure)
 - [Styling Approach](#styling-approach)
 - [Responsiveness](#responsiveness)
@@ -37,7 +38,10 @@ This project implements a skip size selection page, fetching real-time data from
 ### Mobile
 ![Mobile Screenshot](./public/images/screenshots/mobile-ui-updated.png)
 
-> _Replace the above image paths with your actual screenshots in a `screenshots/` folder._
+### Dark Mode
+![Dark Mode Screenshot](./public/images/screenshots/dark-mode-ui.png)
+
+> _Replace the above image paths with your actual screenshots in a `public/images/screenshots/` folder._
 
 ## Features
 - **Dynamic skip options:** Fetched from a live API and mapped to a consistent UI model
@@ -45,12 +49,20 @@ This project implements a skip size selection page, fetching real-time data from
 - **Mobile-first design:** Optimized for all device sizes
 - **Single source of truth for styles:** All styling is managed in a well-organized `App.css`
 - **Component-based architecture:** Each UI element is a reusable React component
+- **Dark mode:** Instantly switch between light and blueish dark mode with a floating SVG toggle button
+
+## Dark Mode
+- **Toggle:** A floating SVG button (moon/sun) in the top-right corner lets users switch between light and dark mode at any time.
+- **Blueish palette:** The dark mode uses a blueish color scheme for a modern, accessible look.
+- **CSS variables:** All colors are managed with CSS variables, so the theme updates instantly and smoothly.
+- **Persistence:** User preference is saved in `localStorage` and respects system preference on first load.
+- **Accessible:** The toggle button is keyboard and screen-reader accessible.
 
 ## Project Structure
 ```
 src/
   api/           # API utilities (fetching skip data)
-  components/    # All React components (Stepper, SkipCard, SummaryBar)
+  components/    # All React components (Stepper, SkipCard, SummaryBar, DarkModeToggle)
   types/         # Shared TypeScript types (e.g., SkipOption)
   App.tsx        # Main app logic and layout
   App.css        # All global and component styles
@@ -67,6 +79,7 @@ src/
   - Uses CSS custom properties (`:root`) for theming and easy color changes
   - Responsive breakpoints for mobile, tablet, and desktop
   - Utility classes for loading/error states
+  - **Dark mode:** Uses a `.dark` class on `<body>` and CSS variables for instant theme switching
 - **No CSS modules:** All styles are global for simplicity and easy overrides.
 
 ## Responsiveness
@@ -105,6 +118,7 @@ src/
 - All interactive elements use semantic HTML and ARIA attributes
 - Keyboard navigation and focus states are supported
 - Color contrast and font sizes are chosen for readability
+- Dark mode toggle is accessible
 
 ## License
 This project is open source and available under the [MIT License](LICENSE). 

@@ -3,6 +3,7 @@ import "./App.css";
 import Stepper from "./components/Stepper";
 import SkipCard from "./components/SkipCard";
 import SummaryBar from "./components/SummaryBar";
+import DarkModeToggle from "./components/DarkModeToggle";
 import { fetchSkips } from "./api/skips";
 import { SkipOption } from "./types/skip";
 
@@ -20,6 +21,16 @@ function App() {
   const [selectedSkip, setSelectedSkip] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [dark, setDark] = useState(
+    () =>
+      window.matchMedia("(prefers-color-scheme: dark)").matches ||
+      localStorage.getItem("theme") === "dark"
+  );
+
+  useEffect(() => {
+    document.body.classList.toggle("dark", dark);
+    localStorage.setItem("theme", dark ? "dark" : "light");
+  }, [dark]);
 
   useEffect(() => {
     fetchSkips()
@@ -30,13 +41,27 @@ function App() {
 
   return (
     <div className="skip-selector-root">
+      <DarkModeToggle dark={dark} toggle={() => setDark((d) => !d)} />
       <Stepper steps={steps} currentStep={2} />
       <h1 className="skip-title">Choose Your Skip Size</h1>
       <p className="skip-subtitle">
         Select the skip size that best suits your needs
       </p>
       {loading ? (
-        <div className="skip-loading">Loading skip options...</div>
+        <div className="skip-loading">
+          <svg viewBox="0 0 50 50">
+            <circle
+              cx="25"
+              cy="25"
+              r="20"
+              fill="none"
+              stroke="var(--color-primary)"
+              strokeWidth="5"
+              strokeLinecap="round"
+              strokeDasharray="90 150"
+            />
+          </svg>
+        </div>
       ) : error ? (
         <div className="skip-error">{error}</div>
       ) : (

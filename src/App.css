@@ -10,6 +10,24 @@
   --color-text-muted: #64748b;
   --color-success: #4caf50;
   --color-error: #e53935;
+  /* Dark mode variables */
+  --color-bg-dark: #101624;
+  --color-bg-card-dark: #18223a;
+  --color-primary-darkmode: #38bdf8;
+  --color-text-dark: #e0e7ef;
+  --color-text-muted-dark: #7dd3fc;
+  --color-accent-dark: #1e293b;
+  --color-white: #fff;
+}
+
+body.dark {
+  --color-bg: var(--color-bg-dark);
+  --color-bg-card: var(--color-bg-card-dark);
+  --color-primary: var(--color-primary-darkmode);
+  --color-text: var(--color-text-dark);
+  --color-text-muted: var(--color-text-muted-dark);
+  --color-accent: var(--color-accent-dark);
+  --color-white: var(--color-bg-card-dark);
 }
 
 body,
@@ -172,10 +190,11 @@ html,
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #fff;
+  /* background: #fff; */
   border-radius: 14px 0 0 14px;
   margin: 0;
-  width: 90px;
+  margin-left: 10px;
+  width: 120px;
 }
 .skip-card-img {
   width: 60px;
@@ -281,7 +300,7 @@ html,
   left: 0;
   right: 0;
   bottom: 0;
-  background: #fff;
+  background: var(--color-white);
   box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.07);
   display: flex;
   flex-direction: column;
@@ -300,6 +319,11 @@ html,
     padding-right: 5%;
   }
 }
+
+body.dark .skip-card.selected {
+  background: var(--color-bg-card-dark) !important;
+}
+
 .skip-summary-info {
   display: flex;
   align-items: center;
@@ -367,10 +391,13 @@ html,
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
-    padding:0;
+    padding: 0;
     margin-right: 0;
     margin-bottom: 8px;
     background: none !important;
+  }
+  .skip-card-img-wrap {
+    margin-left: 0;
   }
   .skip-summary-info span {
     width: 94%;
@@ -422,4 +449,21 @@ html,
 }
 .skip-error {
   color: var(--color-error);
+}
+
+.skip-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+  width: 100%;
+}
+.skip-loading svg {
+  width: 48px;
+  height: 48px;
+  animation: skip-spin 1s linear infinite;
+  display: block;
+}
+@keyframes skip-spin {
+  100% { transform: rotate(360deg); }
 }
