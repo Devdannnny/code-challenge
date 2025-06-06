@@ -32,14 +32,10 @@ This project implements a skip size selection page, fetching real-time data from
 
 ## Screenshots
 
-### Desktop
-![Desktop Screenshot](./public/images/screenshots/desktop-ui.png)
+![Desktop Screenshot](./public/images/screenshots/screen-shot-update.png)
 
-### Mobile
-![Mobile Screenshot](./public/images/screenshots/mobile-ui-updated.png)
 
-### Dark Mode
-![Dark Mode Screenshot](./public/images/screenshots/dark-mode-ui.png)
+
 
 > _Replace the above image paths with your actual screenshots in a `public/images/screenshots/` folder._
 
