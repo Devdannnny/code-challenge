@@ -684,6 +684,12 @@ body.dark .skip-card.selected {
     text-align: center !important;
   }
 
+  .skip-content-container
+  {
+    min-width: 100%;
+    max-width: 100%;
+  }
+
   body
   {
     padding-bottom: 100px;
@@ -698,4 +704,22 @@ body.dark .skip-card.selected {
   {
     font-size: 16px;
   }
+}
+
+@media (min-width: 500px) and (max-width: 900px) {
+  .skip-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 28px;
+    overflow-x: unset;
+    padding-bottom: 0;
+    padding-right: 16px;
+  }
+
+  .skip-card
+  {
+    min-width: 100%;
+    max-width: 100%;
+  }
+  
 }
